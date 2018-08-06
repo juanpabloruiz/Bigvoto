@@ -1,5 +1,1 @@
-<?php
-
-	$link = new mysqli('localhost', 'root', '', 'bigvoto');
-
-?>
+<?php $link = new mysqli('localhost', 'root', '', 'bigvoto'); ?>
