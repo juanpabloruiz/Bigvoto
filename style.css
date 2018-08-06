@@ -1,0 +1,62 @@
+aside {
+        background: orange;
+    }
+    .affix {
+        right: 0;
+        top: 0;
+    }
+    .asis{
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-align: center;
+        text-transform: capitalize;
+        width: 24%;
+    }
+    #A4 {
+        right: 0;
+    }
+    aside {
+        right: 0;
+    }
+    
+    .navbar {
+        
+        
+    }
+    .col-xs-2 {
+        right: 0px;
+        width: 24%;
+    }
+    .col-xs-3 {
+        border: 0px solid;
+        margin: 0px;
+        padding: 0px;
+    }
+    .list-group-item {
+        border-radius: 0;
+        color: white;
+        display: inline-block;
+        font-size: 1em;
+        margin: 0px;
+        padding: 0.3em 0.7em;
+        text-transform: capitalize;
+        width: 33%;
+    }
+    .right {
+        border: 1px solid;
+        float: right;
+    }
+    @media screen and (max-width: 768px) {
+
+        .col-xs-6 {
+            width: 100%;
+        }
+        .affix {
+            position: relative;
+        }
+        .navbar {
+            position: relative;
+            width: 100%;
+        }
+
+    }

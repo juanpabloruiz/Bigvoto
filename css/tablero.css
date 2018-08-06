@@ -1,0 +1,191 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+:focus {
+	outline: 0px none transparent;
+}
+
+@font-face {
+	font-family: 'BalooBhaina-Regular';
+	src: url('BalooBhaina-Regular.ttf') format('truetype');
+}
+
+a{text-decoration:none;outline:none;}
+a:visited{color:#666;}
+article, aside, footer, header, nav, section{display:block;}
+
+h2 {
+	font-size: 2em;
+}
+
+h4 {
+	margin: 10px 0px;
+}
+
+#presentes {
+	border: 0px solid #ffffff;
+	font-family: "Ubuntu";
+	font-size: 4em;
+	float: right;
+	text-align: right;
+	text-transform: none;
+	width: 100%;
+}
+
+hr{border: 1px solid #f5f5f5;}
+
+body {
+	background: black;
+	font:16px Verdana;
+	color: #ffffff;
+	padding: 2em;
+	text-transform: uppercase;
+}
+
+footer {
+	background: #444444;
+	border: 1px solid #d6d6d6;
+	color: #f1f1f1;
+	padding: 3%;
+	text-align: center;
+}
+
+iframe {
+	width: 100%;
+}
+
+section {	
+	margin: auto;
+	max-width: 100%;
+	width: 1000px;
+	word-wrap: break-word;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+
+#abstenciones {
+	color: #1E74FF;
+	border: 0px solid #ffffff;
+  display: table-cell;
+  padding: 0.1em 0.5em;
+  background: #000000;
+  text-align: left;
+}
+
+
+
+.calculos {
+	display: table-row;
+	line-height: 1em;
+
+	
+}
+
+#suma_NO_titulo {
+	color: red;
+	border: 0px solid #ffffff;
+  display: table-cell;
+  padding: 0.1em 0.5em;
+  background: #000000;
+  text-align: left;
+}
+
+#suma_SI_titulo {
+	color: #2BFF0D;
+	border: 0px solid #ffffff;
+  display: table-cell;
+  padding: 0.1em 0.5em;
+  background: #000000;
+  text-align: left;
+}
+
+
+
+#expte {
+	font-family: Impact;
+	font-size: 7em;
+	margin: auto;
+	text-transform: none;
+	text-align: center;
+	width: 100%;
+}
+
+#extracto {
+	border: 0px solid #fff;
+	display: block;
+	font-family: "Ubuntu", Arial, Serif;
+	font-size: 2.6em;
+	min-height: 5em;
+	margin: 1em 0em 0em;
+	text-transform: none;
+}
+
+#result {
+	border: 0px solid #fff;
+	display: inline-block;
+	font: 7em Impact, serif;
+	vertical-align: top;
+	width: 50%;
+	
+}
+
+#resultados {
+	border: 0px solid #fff;
+	display: inline-block;
+	font: Impact, Arial, Serif;
+	margin: auto;
+	padding: 0.5em;
+	text-align: left;
+	vertical-align: top;
+}
+
+
+
+
+
+
+.parpadea {
+	border: 0px solid #fff;
+	display: inline-block;
+ font: 10em Impact, Arial, Serif;
+
+ line-height: 2.4em;
+  vertical-align: top;
+  width: 49.6%;
+  animation-name: parpadeo;
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 0.7s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+}
+
+@keyframes parpadeo {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}

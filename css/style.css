@@ -1,0 +1,253 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	color: #666666;
+	text-decoration: none;
+}
+
+aside {
+	border: 1px solid;
+	display: inline-block;
+	position: fixed;
+	top: 0px;
+	vertical-align: top;
+	width: 50%;
+}
+
+#lateral {
+	display: inline-block;
+	position: fixed;
+	top: 0;
+	right: 0;
+	vertical-align: top;
+	width: 29%;
+	-webkit-transition: width 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.5s;
+    z-index: 300000;
+}
+
+
+
+
+h2 {
+	text-decoration: underline;
+}
+
+
+
+header img {
+	width: 200px;
+}
+
+input {
+	padding: 0.5em;
+}
+
+nav {
+	background: #666666;
+	display: block;
+	-webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+
+
+
+li {
+    float: left;
+
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+li a:active {
+	background: #845734;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+section {
+	border: 0px solid;
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+}
+
+
+textarea {
+	padding: 0.5em;
+}
+
+
+
+
+
+
+
+
+
+
+input[type=radio] {
+	display: none;
+}
+
+
+input[type=radio] + label {
+	border: 3px solid #000000;
+	cursor: pointer;
+    display:inline-block;
+    margin: 0.3em;
+    padding: 1em;
+    background-color: #e7e7e7;
+    border-color: #ddd;
+    width: 95%;
+}
+
+
+input[type=radio]:checked + label {
+    background-color:#333333;
+    color: #ffffff;
+}
+
+.paneles {
+	border: 0px solid;
+	display: inline-block;
+	padding: 0.5em;
+	vertical-align: top;
+}
+
+.perfil {
+	display: inline-block;
+	width: 50%;
+
+}
+
+.perfil a {
+	border: 0px solid;
+}
+.perfil img {
+	height: 80px;
+	width: 80px;
+}
+
+#diputados {
+	border: 1px solid;
+	display: inline-block;
+	vertical-align: top;
+	width: 49%;
+}
+
+#diputados a {
+	border: 1px solid;
+	display: inline-block;
+}
+
+.boton {
+	background: #f1f1f1;
+	border: 0px solid #d6d6d6;
+	display: block;
+	padding: 0% 1%;
+}
+
+a .boton{
+	border: 1px solid #d6d6d6;
+}
+
+.num {
+	background: #ffffff;
+	border: 1px solid #d6d6d6;
+	color: #000000;
+	display: inline-block;
+	font: 2em "Ubuntu";
+	margin: 0.1em;
+	padding: 0.5em;
+	vertical-align: top;
+}
+
+#A4 {
+
+
+
+	color: #000000;
+	border: 1px solid;
+	display: inline-block;
+	font-family: "Times New Roman";
+	font-size: 1em;
+	line-height: 1.4em;
+	padding: 5%;
+	vertical-align: top;
+	width: 40%;
+}
+
+#A4 a {
+
+
+}
+
+#asistencia {
+	border: 1px solid;
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+}
+
+#carga {
+	margin: 2em;
+}
+
+.A4 {
+	color: blue;
+	text-decoration: underline;
+}
+
+.voto_opciones {
+	background: gray;
+	border: 1px solid;
+	color: white;
+	display: inline-block;
+	margin: 1% 2% 1% 2%;
+	padding: 1% 2%;
+	text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 600px){
+    ul li {float: none;}
+    aside {width: 100%;}
+    article {width: 100%;}
+    .perfil {width: 50%;}
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px){
+    aside {width: 29.5%;}
+    article {width: 69.5%;}
+    .perfil {width: 50%;}
+
+
+}
