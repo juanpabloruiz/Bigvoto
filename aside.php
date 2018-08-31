@@ -19,7 +19,7 @@ include('functions.php');
     <script src="js/bootstrap.min.js"></script>
 </head>
 
-	<aside class="col-xs-6">
+	<aside>
 	
 
 
@@ -185,29 +185,38 @@ $mociones = mysqli_query($link, "SELECT * FROM mociones WHERE tablero = 'encendi
 		$buscar_abs = strpos($abs, $cadena_buscada);
 		if($buscar_si == true) {
 			echo '<li class="list-group-item" style="background: green;">'.$apellido;
-			echo '<div class="right"><a style="" class="btn list-group-item"  href="anular.php?usuario='.$user.'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn list-group-item"  href="ausentar.php?usuario='.$user.'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn list-group-item" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';
+			echo '<div class="right"><a style="" class="btn btn-default"  href="anular.php?usuario='.$user.'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn list-group-item"  href="ausentar.php?usuario='.$user.'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn btn-default" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';
 		} else if($buscar_no == true) {
 			echo '<li class="list-group-item" style="background: red;">'.$apellido;
-			echo '<div class="right"><a class="btn list-group-item"  href="anular.php?usuario='.$user.'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn list-group-item"  href="ausentar.php?usuario='.$user.'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn list-group-item" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';
+			echo '<div class="right"><a class="btn btn-default"  href="anular.php?usuario='.$user.'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn list-group-item"  href="ausentar.php?usuario='.$user.'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn btn-default" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';
 		} else if($buscar_abs == true) {
 				echo '<li class="list-group-item" style="background: #337ab7;">'.$apellido;
-				echo '<div class="right"><a class="btn list-group-item"  href="anular.php?usuario='.$user.'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn list-group-item"  href="ausentar.php?usuario='.$user.'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn list-group-item" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';
+				echo '<div class="right"><a class="btn btn-default"  href="anular.php?usuario='.$user.'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn list-group-item"  href="ausentar.php?usuario='.$user.'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a><a role="button" style="width: 30%;" class="btn btn-default" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';
 		} else if($reg['estado'] == 'presente'){
 			echo '<li class="list-group-item" style="background: gray;">'.$apellido;
-			echo '<div class="right"><a style="" class="btn list-group-item"  href="anular.php?usuario='.$user.'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a><a class="btn btn-success"  href="ausentar.php?usuario='.$user.'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>';
+			echo '<div class="right"><a style="" class="btn btn-default"  href="anular.php?usuario='.$user.'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a><a class="btn btn-success"  href="ausentar.php?usuario='.$user.'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>';
 			if($reg['abstencion'] == 'activo') {
-				echo '<a role="button" style="background: red;" class="btn list-group-item" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';				
+				echo '<a role="button" style="background: red;" class="btn btn-default" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';				
 			} else {
-				echo '<a role="button" class="btn list-group-item" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';
+				echo '<a role="button" class="btn btn-default" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';
 			}
 			
 		} else if($reg['estado'] == 'ausente'){
 			echo '<li class="list-group-item" style="background: gray;">'.$apellido;
-			echo '<div class="right"><a style="" class="btn list-group-item"  href="anular.php?usuario='.$user.'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a><a class="btn btn-danger"  href="ausentar.php?usuario='.$user.'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>';
-			if($reg['abstencion'] == 'activo') {
-				echo '<a role="button" style="background: red;" class="btn list-group-item" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';				
+			echo '<div class="right">'; ?>
+			
+			<a class="btn btn-default"  href="anular.php?usuario=<?php echo $user; ?>">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</a>
+			
+			<a class="btn btn-danger"  href="ausentar.php?usuario=<?php echo $user; ?>">
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+			</a>
+
+			<?php if($reg['abstencion'] == 'activo') {
+				echo '<a role="button" style="background: red;" class="btn btn-default" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';				
 			} else {
-				echo '<a role="button" class="btn list-group-item" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';
+				echo '<a role="button" class="btn btn-default" href="abstencion.php?usuario='.$user.'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></div></li>';
 			}
 			
 		}

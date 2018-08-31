@@ -43,7 +43,6 @@ aside {
         width: 33%;
     }
     .right {
-        border: 1px solid;
         float: right;
     }
     @media screen and (max-width: 768px) {
