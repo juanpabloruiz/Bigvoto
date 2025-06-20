@@ -1,230 +1,90 @@
-
+<?php session_start(); // Start session to access session variables ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-	<title>Login</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/bootstrap.css">
-		<style>
-	body{background: #eee;}
-html,body{
-    position: relative;
-    height: 100%;
-}
-
-.login-container{
-    position: relative;
-    width: 300px;
-    margin: 80px auto;
-    padding: 20px 40px 40px;
-    text-align: center;
-    background: #fff;
-    border: 1px solid #ccc;
-}
-
-#output{
-    position: absolute;
-    width: 300px;
-    top: -75px;
-    left: 0;
-    color: #fff;
-}
-
-#output.alert-success{
-    background: rgb(25, 204, 25);
-}
-
-#output.alert-danger{
-    background: rgb(228, 105, 105);
-}
-
-
-.login-container::before,.login-container::after{
-    content: "";
-    position: absolute;
-    width: 100%;height: 100%;
-    top: 3.5px;left: 0;
-    background: #fff;
-    z-index: -1;
-    -webkit-transform: rotateZ(4deg);
-    -moz-transform: rotateZ(4deg);
-    -ms-transform: rotateZ(4deg);
-    border: 1px solid #ccc;
-
-}
-
-.login-container::after{
-    top: 5px;
-    z-index: -2;
-    -webkit-transform: rotateZ(-2deg);
-     -moz-transform: rotateZ(-2deg);
-      -ms-transform: rotateZ(-2deg);
-
-}
-
-.avatar{
-    width: 100px;height: 100px;
-    margin: 10px auto 30px;
-    border-radius: 100%;
-    border: 2px solid #aaa;
-    background-size: cover;
-}
-
-.form-box input{
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    height:40px;
-    border: 1px solid #ccc;;
-    background: #fafafa;
-    transition:0.2s ease-in-out;
-
-}
-
-.form-box input:focus{
-    outline: 0;
-    background: #eee;
-}
-
-.form-box input[type="text"]{
-    border-radius: 5px 5px 0 0;
-    text-transform: lowercase;
-}
-
-.form-box input[type="password"]{
-    border-radius: 0 0 5px 5px;
-    border-top: 0;
-}
-
-.form-box button.login{
-    margin-top:15px;
-    padding: 10px 20px;
-}
-
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-    -ms-transform: translateY(20px);
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-.fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venus CRUD App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-
-
-<?php
-
-include('config.php');
-include('functions.php');
- session_start();
-if(!isset($_SESSION["s_usuario"])) {
-
-
-	
-	echo '
-
-	<div class="container">
-	<div class="login-container">
-            <div id="output"></div>
-            <div class="form-box">
-                <form action="ingresando.php" method="post">
-                    <input name="usuario" type="text" placeholder="Usuario">
-                    <input type="password" name="clave" placeholder="Contraseña">
-                    <button class="btn btn-info btn-block login" name="Submit" type="submit">Ingresar</button>
-                </form>
-            </div>
-        </div>
-        
-</div>';
-	
-} else {
-	include('config.php');
-   
-	$user = $_SESSION['s_usuario'];
-	$users = mysqli_query($link, "SELECT * FROM usuarios WHERE usuario = '".$user."'");
-	while($us = mysqli_fetch_array($users)) {
-		if($us['rango'] == 'diputado') {
-
-			echo '
     <div class="container">
-    <div class="login-container">
-            <div id="output"></div>
-            <div class="avatar"><img src="img_dips/'.$_SESSION['perfil'].'" class="img-circle" alt="Foto" width="96"></div>
-            <div class="form-box">
-                <form action="ingresando.php" method="post">
-                    <input name="usuario" type="text" style="display: none;" value="'.$us['usuario'].'">
-                    <input type="password" name="clave" style="display: none;" value="'.$us['clave'].'">
-                    <button class="btn btn-info btn-block login" name="Submit" type="submit">Presione aquí para ingresar</button>
-                </form>
-            </div>
+    <?php
+    // Display success message
+    if(isset($_SESSION['success_message'])){
+        echo '<div class="message-success">' . htmlspecialchars($_SESSION['success_message']) . '</div>';
+        unset($_SESSION['success_message']); // Clear the message after displaying
+    }
+
+    // Display error message
+    if(isset($_SESSION['error_message'])){
+        echo '<div class="message-error">' . htmlspecialchars($_SESSION['error_message']) . '</div>';
+        unset($_SESSION['error_message']); // Clear the message after displaying
+    }
+    ?>
+    <h1>Welcome to Venus CRUD App</h1>
+
+    <h2>Add New Item</h2>
+    <form action="create.php" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
         </div>
-        
-</div>';
-
-include('config.php');
-$usuario = $_SESSION["s_usuario"];
-
-
-		} elseif($us['rango'] == 'operador') {
-			echo '
-
-    <div class="container">
-    <div class="login-container">
-            <div id="output"></div>
-            <div class="avatar"><a href="inicio.php"><img src="img_dips/'.$_SESSION['perfil'].'" class="img-circle" alt="Foto" width="96"></a></div>
-            <div class="form-box">
-                <form action="ingresando.php" method="post">
-                    <input name="usuario" type="text" placeholder="Usuario">
-                    <input type="password" name="clave" placeholder="Contraseña">
-                    <button class="btn btn-info btn-block login" name="Submit" type="submit">Presione aquí</button>
-                </form>
-            </div>
+        <div>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
         </div>
-        
-</div>';
-		}
-	} 
-	
-}
-	
+        <div>
+            <button type="submit">Add Item</button>
+        </div>
+    </form>
 
-?>
+    <h2>Existing Items</h2>
+    <?php
+    // Include database configuration
+    require_once 'db_config.php';
+
+    // Attempt select query execution
+    $sql = "SELECT id, name, description, created_at FROM items ORDER BY created_at DESC";
+    if($result = mysqli_query($link, $sql)){
+        if(mysqli_num_rows($result) > 0){
+            echo "<table>";
+                echo "<thead>";
+                    echo "<tr>";
+                        echo "<th>ID</th>";
+                        echo "<th>Name</th>";
+                        echo "<th>Description</th>";
+                        echo "<th>Created At</th>";
+                        echo "<th>Actions</th>";
+                    echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
+                while($row = mysqli_fetch_array($result)){
+                    echo "<tr>";
+                        echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['description']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
+                        echo "<td>";
+                        echo "<a href='edit.php?id=" . htmlspecialchars($row['id']) . "'>Edit</a> | ";
+                        echo "<a href='delete.php?id=" . htmlspecialchars($row['id']) . "' onclick=\"return confirm('Are you sure you want to delete this item?');\">Delete</a>";
+                        echo "</td>";
+                    echo "</tr>";
+                }
+                echo "</tbody>";
+            echo "</table>";
+            // Free result set
+            mysqli_free_result($result);
+        } else{
+            echo "<p>No items found.</p>";
+        }
+    } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    }
+
+    // Close connection
+    mysqli_close($link);
+    ?>
+    </div> <!-- close .container -->
 </body>
 </html>
